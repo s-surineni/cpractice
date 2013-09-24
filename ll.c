@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 void insert();
+void search();
 void display();
 struct node{
     int data;
@@ -11,7 +12,9 @@ struct node* current=NULL;
 int main(){
     int choice=10;
 while(choice!=0){
+	printf("enter 0 to exit\n");
     printf("enter 1 to insert\n");
+    printf("enter 2 to search\n");
     
     scanf("%d",&choice);
     
@@ -19,7 +22,12 @@ while(choice!=0){
         case 1:
             insert();
             break;
+            
+            case 2:
+            search();
+            break;
     }
+    
 }
     return 0;
 }
@@ -60,4 +68,22 @@ item++;}
     }
 return;
 }
+
+void search(){
+	int find;
+printf("enter a number to search\n");
+scanf("%d",&find);
+struct node *temp;
+temp=head;
+for(;temp!=NULL;temp=temp->next){
+	if(temp->data==find)
+	{
+		printf("element %d is already there \n",find);
+		break;
+	}
+	
+}
+printf("element %d is not there \n",find);
+}
+	
 
